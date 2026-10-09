@@ -1,0 +1,27 @@
+[project]
+name = "nanorl"
+version = "0.1.0"
+description = "Capture mjlab environment steps into CUDA graphs for faster robotics RL"
+readme = "README.md"
+authors = [
+    { name = "psushi", email = "susheendharvj@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "mjlab==1.6.0",
+    "warp-lang==1.17.0",
+]
+
+[project.scripts]
+nanorl = "nanorl.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
