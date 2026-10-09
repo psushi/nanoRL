@@ -74,6 +74,16 @@ To see the core ideas in about 100 lines of plain PyTorch, run
 `--without repin`, `--without hoist` or `--without masked` to watch each
 mechanism fail.
 
+## Tests
+
+```bash
+uv pip install pytest
+pytest            # CPU: Cartpole and Lift-Cube must match stock mjlab exactly, plus warning checks
+pytest --full     # also G1, Go1, rough terrain and motion tracking (slow on CPU)
+```
+
+On a GPU machine, `python -m nanorl check TASK` also checks the captured graph.
+
 ## How it works
 
 1. **Fixed buffers.** A graph reuses the memory addresses it recorded, so
